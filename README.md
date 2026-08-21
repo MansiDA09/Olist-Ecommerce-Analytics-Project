@@ -240,15 +240,15 @@ Credit card is the dominant payment method. Payment values are highly positively
 
 ### Executive Overview
 
-![Executive Overview](../04_Screenshots/Executive_Overview.png)
+![Executive Overview](Screenshots/Executive_Overview.png)
 
 ### Customer & Product Analytics
 
-![Customer & Product Analytics](../04_Screenshots/Customer_Product_Analytics.png)
+![Customer & Product Analytics](Screenshots/Customer_Product_Analytics.png)
 
 ### Sales & Revenue Analytics
 
-![Sales & Revenue Analytics](../04_Screenshots/Sales_Revenue_Analytics.png)
+![Sales & Revenue Analytics](Screenshots/Sales_Revenue_Analytics.png)
 
 ---
 
@@ -257,19 +257,18 @@ Credit card is the dominant payment method. Payment values are highly positively
 ```text
 Olist-Ecommerce-Analytics
 │
-├── 01_Excel
-│   └── Olist_Ecommerce_Excel_EDA.xlsx
-│
-├── 02_SQL
-│   └── Olist_Ecommerce_SQL_Analysis.sql
-│
-├── 03_PowerBI
-│   └── Olist_Ecommerce_Dashboard.pbix
-│
-├── 04_Screenshots
+├──01_Screenshots
 │   ├── Executive_Overview.png
 │   ├── Customer_Product_Analytics.png
-│   └── Sales_Revenue_Analytics.png
+│   └── Sales_Revenue_Analytics.png 
 │
-└── 05_Documentation
-    └── README.md
+├──02_PowerBI
+│   └── Olist_Ecommerce_Dashboard.pbix 
+│
+├── 03_Excel
+│   └── Olist_Ecommerce_Excel_EDA.xlsx
+│
+├──04_SQL
+│   └── Olist_Ecommerce_SQL_Analysis.sql 
+│
+└── 05_README.md
