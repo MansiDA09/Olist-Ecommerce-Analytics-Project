@@ -68,7 +68,7 @@ The analysis uses the following datasets:
 
 ---
 
-# 📈 Excel Analysis
+# 📈 Excel Analysis & Data Quality
 
 Excel was used for exploratory data analysis and statistical analysis.
 
@@ -84,6 +84,23 @@ Excel was used for exploratory data analysis and statistical analysis.
 - Review analysis
 - Price and payment statistics
 
+Since the raw Excel file is too large to render directly on GitHub (>50MB), the data profiling tables, baseline statistical metrics, and validation workflows are fully documented below.
+
+Before starting deep analytical transformations, a robust data profiling check was run across all Olist tables to ensure referential integrity.
+
+| Dataset | Total Records | Missing Values | Duplicate Check | Data Preparation Details |
+| :--- | :--- | :--- | :--- | :--- |
+| **Customers** | 99,441 | Checked | Checked | Verified unique customer identifiers and localized geo-fields |
+| **Orders** | 99,441 | Checked | Checked | Standardized purchase timestamps and handled delivery gaps |
+| **Order Items** | 112,650 | Checked | Checked | Validated strict math constraints across seller pricing models |
+| **Payments** | 103,886 | Checked | Checked | Cross-checked sequential voucher values and card transactions |
+| **Products** | 32,951 | Checked | Checked | Structured category descriptions and translated product types |
+| **Reviews** | 99,224 | Checked | Checked | Filtered missing text attributes while keeping active satisfaction ratings |
+
+![Data Quality Summary](Screenshots/Data_Quality.png)
+
+***
+
 ### Statistical Analysis
 
 The following statistics were calculated for numerical variables:
@@ -98,6 +115,27 @@ The following statistics were calculated for numerical variables:
 - Variance
 - Skewness
 - Kurtosis
+  
+Descriptive statistics were compiled to analyze distribution shapes, variances, and skewness for operational decision-making.
+
+| Metric | Table 1 — Payment Value | Table 2 — Product Price |
+| :--- | :--- | :--- |
+| **Mean** | 154.10 | 120.65 |
+| **Median** | 100.00 | 74.99 |
+| **Mode** | 50.00 | 59.90 |
+| **Minimum** | 0.00 | 0.85 |
+| **Maximum** | 13,664.08 | 6,735.00 |
+| **Range** | 13,664.08 | 6,734.15 |
+| **Standard Deviation** | 217.49 | 183.63 |
+| **Variance** | 47,303.67 | 33,721.42 |
+| **Skewness** | 9.25 (Highly Right-Skewed) | 7.92 (Highly Right-Skewed) |
+| **Kurtosis** | 241.83 (Heavy-Tailed) | 120.83 (Heavy-Tailed) |
+
+#### 💡 Key Distribution Insights:
+* **High Right-Skewness (9.25 & 7.92):** Both payment values and product prices are heavily skewed right, meaning the vast majority of e-commerce transactions are small-to-medium purchases, with a few massive outlier orders stretching the scale.
+* **Extreme Kurtosis (241.83):** The massive payment kurtosis indicates a significant presence of heavy tails—outlier orders are frequent and substantial, requiring distinct segmenting strategies rather than looking only at baseline averages.
+
+![Overall Statistical Summary](Screenshots/Overall_Statistical_Summary.png)
 
 ### Key Excel Findings
 
